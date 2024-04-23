@@ -1,0 +1,13 @@
+resources:
+  - "namespace.yml"
+  - "spc.yml"
+
+namespace: data-redis
+
+helmCharts:
+  - name: redis
+    releaseName: redis
+    repo: https://charts.bitnami.com/bitnami
+    version: 18.*
+    valuesFile: redis-values.yml
+    namespace: data-redis

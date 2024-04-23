@@ -1,0 +1,22 @@
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: redis-spc
+spec:
+  provider: azure
+  parameters:
+    keyvaultName: launchpad-circuit-sea-kv
+    clientID: 72dbfb12-777a-4ee6-ab07-37794dc6b59e
+    tenantID: 89bb3d83-ea8a-4e54-a9ef-097171e7346b
+    objects: |
+      array:
+        - |
+          objectName: Ops-Redis-Password
+          objectType: secret
+          objectAlias: REDIS_PASSWORD
+  secretObjects:
+    - secretName: redis-password-secret
+      type: Opaque
+      data:
+        - key: redis-password
+          objectName: REDIS_PASSWORD
