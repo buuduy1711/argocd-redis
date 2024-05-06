@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{.Values.deployment.name}}
+spec:
+  replicas: {{.Values.deployment.scale}}
+  selector:
+    matchLabels:
+      app: {{.Values.deployment.name}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.deployment.name}}
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+      - name: redis
+        image: {{.Values.deployment.image.name}}:{{.Values.deployment.image.tag}}
+        command: ["redis-server"]
+        args: ["--requirepass","{{.Values.redis.password}}"]
+        {{- if .Values.resources.enabled }}
+        resources:
+          limits:
+            memory: {{.Values.resources.memoryLimit}}
+        {{- end }}
+        ports:
+        - containerPort: 6379
+          name: redis

@@ -1,0 +1,12 @@
+apiVersion: v2
+entries:
+  redis:
+  - apiVersion: v2
+    name: redis
+    version: 0.1.0
+    appVersion: 1.0.0
+    description: A Helm chart for Kubernetes
+    urls:
+    - https://evolutionwellness@dev.azure.com/evolutionwellness/GitOps/_git/helm-chart/redis/redis-0.1.0.tgz
+
+generated: "2024-05-06T17:21:38.020388488+07:00"

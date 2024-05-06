@@ -1,0 +1,17 @@
+# Deployment values
+deployment:
+  name: redis
+  scale: 1
+  image:
+    name: redis
+    tag: 7.2.4-alpine
+redis:
+  password: 
+resources:
+  enabled: true
+  memoryLimit: "256Mi"
+service:
+  type: ClusterIP
+  port: 6379
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true" # internal load balancer
