@@ -7,6 +7,6 @@ entries:
     appVersion: 1.0.0
     description: A Helm chart for Kubernetes
     urls:
-    - https://evolutionwellness@dev.azure.com/evolutionwellness/GitOps/_git/helm-chart/redis/redis-0.1.0.tgz
+    - https://ewsdev.azurecr.io/helm/azurite
 
 generated: "2024-05-06T17:21:38.020388488+07:00"
